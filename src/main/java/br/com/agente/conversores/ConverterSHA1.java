@@ -14,7 +14,7 @@ public class ConverterSHA1 implements Converter{
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        return cipher(value);
+        return cipher(value);//cifrando a senha
     }
 
     @Override
@@ -23,6 +23,7 @@ public class ConverterSHA1 implements Converter{
     }
 
     public static String cipher(String value) {
+        //converte de string normal para sha1
         String algorithm = "SHA1";
         byte[] buffer = value.getBytes();
         MessageDigest md;

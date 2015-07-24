@@ -52,8 +52,9 @@
                     </f:facet>
                     <p:commandButton action="#{mbPessoa.editPessoa}"
                         value="Editar" image="ui-icon ui-icon-pencil"
-                        update="@form" ajax="false">
+<!--                        update="@form" ajax="false"> vai mudar de pagina por isso nao faz sentido ser ajax true-->
                         <f:setPropertyActionListener value="#{pessoa}" target="#{mbPessoa.pessoa}"/>
+<!--                        aponta para o atributo pessoa que está no mbPessoa passando o valor pessoa.idPessoa, etc-->
                         <f:setPropertyActionListener value="#{pessoa.idPessoa}" target="#{mbPessoa.pessoa.idPessoa}"/>
                         <f:setPropertyActionListener value="#{pessoa.endereco}" target="#{mbPessoa.endereco}"/>
                         <f:setPropertyActionListener value="#{pessoa.endereco.estado.idEstado}" target="#{mbPessoa.endereco.estado.idEstado}"/>                        

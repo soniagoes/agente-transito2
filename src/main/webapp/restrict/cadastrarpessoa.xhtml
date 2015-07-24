@@ -39,6 +39,7 @@ apagar o tarefas para colocar o conteúdo-->
                                 <p:selectOneMenu id="sexo" value="#{mbPessoa.pessoa.sexo.idSexo}">
                                     <f:selectItems value="#{bbSexo.sexos}" var="sexo" itemValue="#{sexo.idSexo}" itemLabel="#{sexo.descricao}"/>
                                 </p:selectOneMenu>
+                                <!--a var facilita para não ter que fazer isso: <!--{bbSexo.sexos...}-->
 
                                 <h:outputLabel for="telefone" value="Telefone.:"/>
                                 <p:inputMask id="telefone" size="40" mask="(99) 9999-9999"
@@ -63,7 +64,7 @@ apagar o tarefas para colocar o conteúdo-->
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
                                             locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
 
-                                <h:outputLabel for="usuario" value="Nome de Usuário.:"/>
+                                <h:outputLabel for="usuario" value="Login.:"/>
                                 <p:inputText id="usuario" value="#{mbPessoa.pessoa.login}" size="30"/>
 
                                 <h:outputLabel for="senha" value="Senha.:" />

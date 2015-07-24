@@ -52,9 +52,9 @@ public class MbPessoa implements Serializable {
     }
 
     public String addPessoa() {
-        Date date = new Date(); //
+        Date date = new Date(); //pega a data do cadastro
         if (pessoa.getIdPessoa() == null || pessoa.getIdPessoa() == 0) {
-            pessoa.setDataDeCadastro(date);
+            pessoa.setDataDeCadastro(date);//passa a data de cadastro da pessoa
             insertPessoa();
         } else {
             updatePessoa();
@@ -64,9 +64,11 @@ public class MbPessoa implements Serializable {
     }
 
     private void insertPessoa() {
+        //converte a senha e depois cifra ela
         pessoa.setSenha(ConverterSHA1.cipher(pessoa.getSenha()));
+        
         if (pessoa.getSenha() == null ? confereSenha == null : pessoa.getSenha().equals(ConverterSHA1.cipher(confereSenha))) {
-            pessoa.setPermissao("ROLE_ADMIN");
+            pessoa.setPermissao("ROLE_ADMIN");//por padrao o spring security usa esse ROLE_ADMIN
             pessoaDAO().save(pessoa);
             endereco.setPessoa(pessoa);
             enderecoDAO().save(endereco);
@@ -80,7 +82,7 @@ public class MbPessoa implements Serializable {
 
     private void updatePessoa() {
         pessoaDAO().update(pessoa);
-        enderecoDAO().update(endereco);
+        enderecoDAO().update(endereco);//não precisa setar id pq se está editando pressupoe-se que já esta com id preenchido
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso", ""));
     }
