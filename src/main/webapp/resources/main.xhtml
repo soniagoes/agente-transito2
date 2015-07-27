@@ -24,6 +24,7 @@
                 <h:form>
                     <br/>
                     <h5><h:outputText value="SEJA BEM VINDO(A) #{bbUsuarioLogado.procuraPessoa().getNome()}!"/></h5>
+                    
                     <br/>
                     <a href="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
 	                <h4>LOGOFF</h4>
@@ -38,7 +39,8 @@
                 <p:menubar styleClass="labelmenu">
 
                     <p:submenu label="Cadastros">  
-                        <p:menuitem value="Cidades" url="/restrict/cadastrarcidade.faces"/>  
+                        <p:menuitem value="Cidades" url="/restrict/cadastrarcidade.faces"/>
+                        <p:menuitem value="Pessoa" url="/restrict/cadastrarpessoa.faces"/>  
 <!--                        limpar os campos apos sair da pagina-->
                         <p:menuitem value="Pessoas" action="#{mbPessoa.limpPessoa}" ajax="false"/>                        
                     </p:submenu> 

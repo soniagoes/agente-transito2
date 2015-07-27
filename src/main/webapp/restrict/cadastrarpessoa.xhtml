@@ -7,20 +7,12 @@
                 xmlns:c="http://java.sun.com/jsp/jstl/core"
                 xmlns:p="http://primefaces.org/ui"
                 template="./../resources/main.xhtml">
-<!--botao direito em restrict
-cliente de Modelo de Facelets
-nome: cadastrarpessoa
-selecionar ui:composition
-procurar modelo que está em resources main.xhtml
-selecionar arquivo
-finalizar
-apagar o tarefas para colocar o conteúdo-->
+
     <ui:define name="tarefas">
         <p:fieldset legend="Cadastrar Pessoas">
 
             <br/>
             <h:form>
-<!--                wizard do primefaces: http://www.primefaces.org/showcase/ui/panel/wizard.xhtml-->
                 <p:wizard nextLabel="Próxima Aba" backLabel="Aba Anterior">
                     <p:tab title="Informações Básicas" id="infoPessoal">
                         <p:panel header="Informações Básicas da Pessoa">
@@ -39,7 +31,6 @@ apagar o tarefas para colocar o conteúdo-->
                                 <p:selectOneMenu id="sexo" value="#{mbPessoa.pessoa.sexo.idSexo}">
                                     <f:selectItems value="#{bbSexo.sexos}" var="sexo" itemValue="#{sexo.idSexo}" itemLabel="#{sexo.descricao}"/>
                                 </p:selectOneMenu>
-                                <!--a var facilita para não ter que fazer isso: <!--{bbSexo.sexos...}-->
 
                                 <h:outputLabel for="telefone" value="Telefone.:"/>
                                 <p:inputMask id="telefone" size="40" mask="(99) 9999-9999"
@@ -54,7 +45,7 @@ apagar o tarefas para colocar o conteúdo-->
                                 </p:inputText>
 
                                 <h:outputLabel for="cpf" value="CPF.:"/>
-                                <p:inputText id="cpf" size="40" value="#{mbPessoa.pessoa.cpf}"
+                                <p:inputText id="cpf" size="14" value="#{mbPessoa.pessoa.cpf}"
                                              required="true" requiredMessage="O campo [CPF] é obrigatório">
                                     <f:validator validatorId="cpfValidator"/>
                                 </p:inputText>
@@ -64,7 +55,7 @@ apagar o tarefas para colocar o conteúdo-->
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
                                             locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
 
-                                <h:outputLabel for="usuario" value="Login.:"/>
+                                <h:outputLabel for="usuario" value="Nome de Usuário.:"/>
                                 <p:inputText id="usuario" value="#{mbPessoa.pessoa.login}" size="30"/>
 
                                 <h:outputLabel for="senha" value="Senha.:" />

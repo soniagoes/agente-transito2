@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="WebApp_ID" version="2.5">
     
-    <display-name>agente_transitoo</display-name>
+    <display-name>semeru_jsf_maven</display-name>
     
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
@@ -20,7 +20,7 @@
         </session-timeout>
     </session-config>
     
-     <!-- Endereço dos arquivos de configuração do Spring -->
+     <!-- Endereço dos arquivos de configuração do Spring - direciona para login.faces-->
     
     <context-param>
         <param-name>contextConfigLocation</param-name>

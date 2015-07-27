@@ -371,6 +371,8 @@
         <!-- |||| DEPENDÊNCIAS DO SPRING-SECURITY || -->  
                                                  
         <!-- ### FACELETS-TAGLIB-JSF2.0-SPRING-3 ### -->
+<!--        essa biblioteca faz a integração do jsf e facelets com o spring security
+        lembrando que tem spring security para jsp, pra jstl puro, pra jsf, pra grails, etc-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>facelets-taglib-jsf20-spring-3</artifactId>
