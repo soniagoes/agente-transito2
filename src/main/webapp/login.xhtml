@@ -25,7 +25,8 @@
 
         <div id="conteudo" title="Área Restrita">
             <h:form>
-                <p:growl id="msg" rendered="#{param.erro}">#{msgs.erro_message}</p:growl>
+                <p:growl id="msg" rendered="#{param.erro}">#{msg.erro_message}</p:growl>
+<!--                    <p:growl id="msg" globalOnly="true" life="2000" class="ui-growl-message-green" />-->
             </h:form>
 
             <p:dialog header="Área Restrita"
@@ -45,9 +46,10 @@
                 <form action="j_spring_security_check" method="post" id="login">
                     <h:panelGrid columns="2" cellpadding="3">
                         <h:outputLabel for="j_username" value="Usuário: " /> 
-                        <h:inputText id="j_username" required="true"/>
+                        
+                        <h:inputText id="j_username" required="true" requiredMessage="Informe seu login!"/>
                         <h:outputLabel for="j_password" value="Senha: " />
-                        <h:inputSecret id="j_password" required="true"/>
+                        <h:inputSecret id="j_password" required="true" requiredMessage="Informe sua senha."/>
                         <h:commandButton value="Acessar"/>
                     </h:panelGrid>
                 </form>

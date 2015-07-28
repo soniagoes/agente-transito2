@@ -64,7 +64,15 @@ body {
    background-color:#FFFFFF;
 
 }
-
+.ui-growl-message-green {
+    font: 20px "Lucida Console", Monaco, monospace !important;
+    letter-spacing: -1px !important;
+    width: 310px !important;
+    float: center !important;
+    text-align: center !important;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.2) !important;
+    color: green !important;
+}
 #menubv li a {
     color: #654B24;
 }

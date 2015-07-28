@@ -14,22 +14,25 @@
             <p:tabView id="tbv1" dynamic="true" cache="true">
                 <p:tab title="Cidade">
                     <h:form prependId="false" id="formCidade">
+                     
                         <p:growl id="msg0"/>
+                      
                         <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
-                            
+                            <p:panel  style="width:800px;height:150px;">
                             <h:outputLabel/>
                             <h:inputHidden id="idcidade" value="#{mbCidade.cidade.idCidade}"/> 
                             
                             <h:outputLabel for="nomecidade" value="Nome.:"/>
                             <p:inputText id="nomecidade" size="40" value="#{mbCidade.cidade.nome}"
                                 onkeyup="this.value = this.value.toUpperCase()" required="true"
-                                requiredMessage="O campo [Nome] é obrigatório."/>
+                                requiredMessage="O campo [Nome] é obrigatório."/><br /><br /><br /><br />
+                            <p:panel style="alignment-baseline:baseline">
                             
-                            <p:panel>
                                 <p:commandButton value="Salvar" action="#{mbCidade.addCidade}"
                                     image="ui-icon ui-icon-disk" update="@form :formtable"/>
                                 <p:commandButton value="Cancelar" actionListener="#{mbCidade.limpCidade}" 
                                     image="ui-icon ui-icon-close" update="@form"/>
+                                </p:panel>
                             </p:panel>
                         </h:panelGrid>
                     </h:form>
