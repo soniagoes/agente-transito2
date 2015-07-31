@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"                
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../resources/main.xhtml">
+
+    <ui:define name="tarefas">
+        <p:fieldset legend="Cadastrar Estados">
+            <br/>
+            <p:tabView id="tbv2" dynamic="true" cache="true">
+                <p:tab title="Estado">
+                    <h:form prependId="false" id="formEstado">
+                     
+                        <p:growl id="msg2"/>
+                      
+                        <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
+                            <p:panel  style="width:800px;height:150px;">
+                            <h:outputLabel/>
+                            <h:inputHidden id="idestado" value="#{mbEstado.estado.idEstado}"/> 
+                            
+                            <h:outputLabel for="nomeestado" value="Nome.:"/>
+                            <p:inputText id="nomeestado" size="40" value="#{mbEstado.estado.nomeEstado}"
+                                onkeyup="this.value = this.value.toUpperCase()" required="true"
+                                requiredMessage="O campo [NomeEstado] é obrigatório."/><br /><br /><br /><br />
+                            <p:panel style="alignment-baseline:baseline">
+                            
+                                <p:commandButton value="Salvar" action="#{mbEstado.addEstado}"
+                                    image="ui-icon ui-icon-disk" update="@form :formtable"/>
+                                <p:commandButton value="Cancelar" actionListener="#{mbEstado.limpEstado}" 
+                                    image="ui-icon ui-icon-close" update="@form"/>
+                                </p:panel>
+                            </p:panel>
+                        </h:panelGrid>
+                    </h:form>
+                </p:tab>
+            </p:tabView>
+            
+            <h:form id="formtable">
+                <p:growl id="msg3"/>
+                <p:dataTable id="idTabela" var="estado" value="#{mbEstado.estados}"
+                             paginator="true" rows="10" emptyMessage="Nenhum registro encontrado"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}
+                             {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15">
+                
+                    <f:facet name="header">Lista de Estados</f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nome"/>
+                        </f:facet>
+                        <h:outputText value="#{estado.nome}"/>
+                    </p:column>
+                    
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ações"/>
+                        </f:facet>
+                        <p:commandButton value="Editar" image="ui-icon ui-icon-pencil"
+                                process="@this" update=":tbv2:formEstado">
+                            <f:setPropertyActionListener target="#{mbEstado.estado}"
+                                value="#{estado}"/>
+                        </p:commandButton>
+                        <p:commandButton value="Remover" action="#{mbEstado.deleteEstado}"
+                                image="ui-icon ui-icon-close" update="@form">
+                            <f:setPropertyActionListener target="#{mbEstado.estado}"
+                                value="#{estado}"/>
+                        </p:commandButton>
+                        
+                    </p:column>
+                    
+                </p:dataTable>
+                
+            </h:form>
+            
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

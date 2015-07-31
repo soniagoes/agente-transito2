@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.agente</groupId>
-    <artifactId>agente_transitoo</artifactId>
+    <artifactId>agente_transito</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>agente_transitoo</name>
+    <name>agente_transito</name>
 
     <properties>
         <spring.version>3.0.5.RELEASE</spring.version>
@@ -18,8 +18,10 @@
         <groovy-all.version>1.7.5</groovy-all.version>
         <hibernate.version>4.0.1.Final</hibernate.version>
         <slf4j.version>1.6.4</slf4j.version>
-        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>   
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+<!--       <netbeans.hint.deploy.server>glassfish</netbeans.hint.deploy.server>-->
+        
+        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
+         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
@@ -125,8 +127,10 @@
         <!-- REPOSITÓRIO DO JASPER REPORTS -->        
         <repository>
             <id>jasperreports</id>
-            <url>http://repo1.maven.org/maven2/</url>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>  
+
+
 
     </repositories>
 
@@ -538,6 +542,35 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
+            
+            <plugin>
+       <groupId>org.glassfish.embedded</groupId>
+         <artifactId>maven-embedded-glassfish-plugin</artifactId>
+         <version>3.1.2.2</version>
+         <configuration>
+            <app>target/${project.artifactId}-${project.version}</app>
+            <port>8282</port>
+            <contextRoot>${project.artifactId}</contextRoot>
+         </configuration>
+         <dependencies>
+           <dependency>
+           <groupId>org.glassfish.main</groupId>
+           <artifactId>simple-glassfish-api</artifactId>
+           <version>4.0-b79</version>
+         </dependency>
+         <dependency>
+           <groupId>org.glassfish.main.extras</groupId>
+           <artifactId>glassfish-embedded-all</artifactId>
+           <version>4.0-b83</version>
+         </dependency>
+         <dependency>
+           <groupId>mysql</groupId>
+           <artifactId>mysql-connector-java</artifactId>
+           <version>5.1.24</version>
+         </dependency> 
+       </dependencies>
+     </plugin>
+     
         </plugins>         
     </build>
        

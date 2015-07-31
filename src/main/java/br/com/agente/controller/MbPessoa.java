@@ -68,7 +68,7 @@ public class MbPessoa implements Serializable {
         pessoa.setSenha(ConverterSHA1.cipher(pessoa.getSenha()));
         
         if (pessoa.getSenha() == null ? confereSenha == null : pessoa.getSenha().equals(ConverterSHA1.cipher(confereSenha))) {
-            pessoa.setPermissao("ROLE_ADMIN");//por padrao o spring security usa esse ROLE_ADMIN
+            pessoa.setPermissao("ROLE_ADMIN");//por padrao o spring security usa esse ROLE_ADMIN mas não é recomendado
             pessoaDAO().save(pessoa);
             endereco.setPessoa(pessoa);
             enderecoDAO().save(endereco);

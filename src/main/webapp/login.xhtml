@@ -24,10 +24,7 @@
         </div>       
 
         <div id="conteudo" title="Área Restrita">
-            <h:form>
-                <p:growl id="msg" rendered="#{param.erro}">#{msg.erro_message}</p:growl>
-<!--                    <p:growl id="msg" globalOnly="true" life="2000" class="ui-growl-message-green" />-->
-            </h:form>
+            
 
             <p:dialog header="Área Restrita"
                       id="dialog"  
@@ -42,27 +39,29 @@
                       resizable="false"
                       visible="true">
 
-
+            <h:form>
+                <p:growl id="msg" rendered="#{param.erro}">#{msgs.erro_message}</p:growl>
+            
                 <form action="j_spring_security_check" method="post" id="login">
                     <h:panelGrid columns="2" cellpadding="3">
                         <h:outputLabel for="j_username" value="Usuário: " /> 
-                        
-                        <h:inputText id="j_username" required="true" requiredMessage="Informe seu login!"/>
+                        <h:inputText id="j_username" required="true"/>
                         <h:outputLabel for="j_password" value="Senha: " />
-                        <h:inputSecret id="j_password" required="true" requiredMessage="Informe sua senha."/>
+                        <h:inputSecret id="j_password" required="true"/>
                         <h:commandButton value="Acessar"/>
                     </h:panelGrid>
                 </form>
+                </h:form>
             </p:dialog>  
         </div>
 
         <!-- Fim da div conteudo -->
 
         <div id="rodape">
-            <a href="http://www.agente.com.br/"><img src="./resources/restrict/images/logo_mini.png" /></a>
+            <a href="http://www.detran.ms.gov.br/"><img src="./resources/restrict/images/logo_mini.png" /></a>
 
             <div id="copyright">                  
-                <a href="http://www.agente.com.br/">Agente Trânsito - &copy; Copyright detran.ms.gov.br 2015</a>
+                <a href="http://www.detran.ms.gov.br/">Agentes de Trânsito - &copy; Copyright DETRAN-MS 2015</a>
             </div>
         </div> <!--Fim da div rodape -->
 

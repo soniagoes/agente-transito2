@@ -16,14 +16,14 @@ public class ConverterSHA1 implements Converter{
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         return cipher(value);//cifrando a senha
     }
-
+//pega um objeto data por exemplo e converte para string para mostrar a data formatada.
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
         return value.toString();
     }
 
     public static String cipher(String value) {
-        //converte de string normal para sha1
+        //converte de string para sha1
         String algorithm = "SHA1";
         byte[] buffer = value.getBytes();
         MessageDigest md;
